@@ -1,0 +1,224 @@
+*{
+    margin:0px ;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{ background: linear-gradient(to right, rgb(255, 95, 188), rgb(255, 255, 255));
+
+}
+
+nav{
+
+    padding-right: 1rem;
+}
+
+nav a{
+    margin-right:1rem;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    border-radius: 2rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.435);
+
+}
+
+nav a:hover{
+    color: white ;
+    width: 100%;
+    background-color: rgb(255, 0, 123);
+
+}
+
+.buscador{
+    min-height: 10vh;
+    background-color: rgb(155, 155, 155);
+}
+
+.for{
+    font-size: small;
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.for2 {
+    padding-top: 10rem;
+    font-size: large;
+    height: 80vh;
+    width: 40%;
+    display: flex; 
+    flex-direction: column;
+    align-content: center;
+
+}
+
+.det{
+    height: 80vh;
+}
+
+label{
+    margin-right: 2rem;
+    margin-left: 0.4rem;
+}
+
+.sear{
+    width: 20%;
+}
+
+main{
+    width: 100%;
+    min-height: 50vh;
+    margin-bottom:2rem;
+}
+
+section{
+    width: 100%;
+    min-height: 90vh;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.carousel{
+    height: 30vh;
+
+}
+.carousel-item{
+    height: 10vh;
+    margin: 0px;
+    padding: 0px; 
+    text-align: center;
+}
+
+.carousel-inner{
+    margin: 0px;
+    padding: 0px;
+    height: 30vh;
+}
+.carousel-inner a {
+    font-size: 10rem;
+    text-decoration: none;
+    color: rgb(255, 0, 123);
+    
+}
+
+.card{
+    width: 20vw;
+    color: black !important;
+    margin-bottom: 2rem;
+}
+
+.card img {
+    width: 100%;
+    height: 10rem;
+}
+
+.card p {
+    color: black !important;
+}
+
+
+footer{
+    background-color: brown;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer img{
+height: 5vh;
+object-fit: contain;
+}
+
+
+.redes{
+    margin-left: 1rem;
+    width: 20%;
+}
+
+p{
+    color: white;
+    font-size: xx-large;
+}
+
+.tb{
+    border: 1px solid black;
+}
+
+
+table{
+    margin-top: 2rem;
+    width:80%;
+}
+
+table,tr,th,td{
+    border: 1px solid black;
+}
+
+@media only screen and (
+  min-width:320px) 
+  and (max-width:767px)
+
+  {
+
+nav{
+    display: flex;
+    flex-direction: column;
+}
+
+ .nal{
+    text-align: center;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+ }
+
+
+    .carousel-inner {
+        width: 100%;
+    }
+
+    .carousel-inner a {
+  font-size: 3rem;
+    }
+
+.for{
+font-size: medium;
+display: flex;
+flex-wrap: wrap;
+height: 25vh;
+
+}
+
+.carousel{
+    height: 10vh;
+
+}
+
+
+}
+
+@media only screen and (
+  min-width:768px) 
+  and (max-width:1440px) {
+ 
+    nav{
+height: 20vh;
+    }
+
+.buscador{
+        min-height: 15vh;}
+
+
+
+.for{
+display: flex;
+flex-wrap: wrap;}
+
+
+
+  }
