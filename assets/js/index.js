@@ -1,7 +1,7 @@
 const contenedorDeEventos= document.getElementById('mainDeIndex')
 const todosLosEventos = eventos.eventos
-const evento= todosLosEventos[0]
 let cards =``
+
 
 for(let evento of todosLosEventos){
 cards += crearEvento (evento)
@@ -20,6 +20,7 @@ return `<div class="card d-flex justify-content-center m-2" style="width: 18rem;
 </div>
 </div>`
 }
+
 
 contenedorDeEventos.innerHTML = cards
 

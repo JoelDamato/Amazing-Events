@@ -4,16 +4,10 @@ const todosLosEventos = []
 
 const fecha=eventos.fechaActual
 
-console.log(eventos.fechaActual)
-
 for (let evento of eventos.eventos ){
     if(fecha<evento.date)
     todosLosEventos.push(evento)
 }
-
-
-const evento= todosLosEventos[0]
-
 
 let cards =``
 for(let evento of todosLosEventos){
@@ -36,7 +30,6 @@ return `<div class="card d-flex justify-content-center mt-2 h-50" style="width: 
 
 contenedorDeEventos.innerHTML = cards
 
-console.log(document.getElementById('mainDeUpComing'))
 
 
 
