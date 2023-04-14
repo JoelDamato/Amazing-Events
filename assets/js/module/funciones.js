@@ -79,18 +79,19 @@ export function imprimirDetail(evento){
   }
 
 //* Stats
-export  function tabla(array,lugar){
+
+export function tabla(array,lugar){
  
-    const template =array.reduce((acc,act) => {
-      return acc+ `
-      <td>${act.categoria}</td>
-      <td>${act.revenues} </td>
-      <td>${act.porcentaje.toFixed(2)} %</td>
-    </tr>
-    `
-    },'')
-    lugar.innerHTML= template
-    }
+  const template =array.reduce((acc,act) => {
+    return (acc+ `
+    <td>${act.categoria}</td>
+    <td>${act.revenues} </td>
+    <td>${act.porcentaje.toFixed(2)} %</td>
+  </tr>
+  `
+  );},'');
+  lugar.innerHTML= template;
+  }
 
 export function imprimirTabla(array) {
     return `
@@ -115,9 +116,9 @@ export function imprimirTabla(array) {
                       <th class="fs-1 bg-light" colspan="3">Upcomming events statistics by category</th>
                   </tr>
                   <tr>
-                      <td>Categories</td>
-                      <td>Revenues</td>
-                      <td>Percentage off attendance</td>
+                      <td><b>Categories</b></td>
+                      <td><b>Revenues</b></td>
+                      <td><b>Percentage off attendance</b></td>
                   </tr>
                   <tbody id="up">
                   <tr>
@@ -128,9 +129,9 @@ export function imprimirTabla(array) {
                       <th class="fs-1 bg-light" colspan="3">Past Events statistic by category</th>
                   </tr>
                   <tr>
-                      <td>Categories</td>
-                      <td>Revenues</td>
-                      <td>Percentage off attendance</td>
+                      <td><b>Categories</b></td>
+                      <td><b>Revenues</b></td>
+                      <td><b>Percentage off attendance</b></td>
                   </tr>
                   <tbody id="past">
                  
@@ -140,7 +141,6 @@ export function imprimirTabla(array) {
                   `;
   }
 
-  
 export function eventMaxAssistance(array) {
   let mayorAsistencia = { nombre: "", asistencia: 0 };
 
@@ -188,4 +188,29 @@ export function eventMaxCapacity(array) {
   )} (capacity) `;
 }
 
+export function estadisticas(parametro,parametro2){
+  let arraystic= [...new Set(parametro.map((evento) => evento.category))].map((categoria) =>{ 
+    let aux = parametro2.filter((elemento) => elemento.categoria == categoria)
+    let acumulado= {categoria:categoria,revenues:0,porcentaje:0,cantidad:0}
+    for (let iterator of aux) {
+      acumulado.revenues += iterator.revenues
+      acumulado.porcentaje += iterator.porcentajeDeAsistencia
+      acumulado.cantidad ++
+      
+    }
+    acumulado.porcentaje = acumulado.porcentaje/acumulado.cantidad
+    return acumulado
+  })
+  return arraystic
+  }
+
+export function statistic(parametro){
+    let Statics = parametro.map((e)=>{
+      return {
+          categoria : e.category,
+          revenues : e.price * e.assistance? e.assistance : e.estimate,
+          porcentajeDeAsistencia: ((e.assistance ? e.assistance : e.estimate) * 100)/e.capacity
+      }
+    })
+    return Statics }
 
