@@ -27,7 +27,7 @@ export function imprimirCategorias(parametro,lugar){
     }
     lugar.innerHTML=template
 }
-export function crearEvento(evento){
+export function crearEvento(evento,url){
         return `
         <div class="card d-flex justify-content-center align-items-end m-2" style="width: 18rem;height:25rem">
         <img src="${evento.image}" class="card-img-top p-1" alt="Coming soon" style="width:18rem; height: 10rem;">
@@ -36,16 +36,17 @@ export function crearEvento(evento){
         <p class="card-text fs-5">${evento.description}</p>
         <div class=" d-flex flex-row justify-content-between">
         <p> Price: ${evento.price} </p>
-        <a href="${location.href == "http://127.0.0.1:5500/assets/index.html" ? "./pages/details.html":"./details.html"}?id=${evento._id}" class="btn vermas btn-dark">See more..</a>
+        <a href="${url}?id=${evento._id}" class="btn vermas btn-dark">See more..</a>
         </div>
         </div>
         </div>`
 }
-export function imprimirEventos(parametro,lugar) {
+export function imprimirEventos(parametro,lugar,url) {
             if (parametro.length === 0) {
             lugar.innerHTML = "NO HAY EVENTOS";
             } else {
-              const eve = parametro.map(crearEvento).join("");
+              const eve = parametro.map((evento) => crearEvento(evento,url)).join("")
+              console.log(eve)
               lugar.innerHTML = eve;
             }
 }

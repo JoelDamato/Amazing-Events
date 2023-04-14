@@ -2,7 +2,7 @@ import{imprimirEventos,imprimirCategorias,filtrarPorCategoria,buscadorDeTexto} f
 
 const contenedorDeEventos= document.getElementById('mainDeUpComing')
 
-
+let url="details.html"
 let todosLosEventos;
 
 fetch('https://mindhub-xj03.onrender.com/api/amazing')
@@ -16,7 +16,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
                 if(evento.date>fecha)
                 filtrado.push(evento)
             }
-            imprimirEventos(filtrado,contenedorDeEventos)
+            imprimirEventos(filtrado,contenedorDeEventos,url)
             let arrayCategorias= [...new Set(filtrado.map(evento => evento.category))]
             imprimirCategorias(arrayCategorias,opcionesDeBusqueda)
 

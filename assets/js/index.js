@@ -3,14 +3,14 @@ import{imprimirEventos,imprimirCategorias,filtrarPorCategoria,buscadorDeTexto} f
 
 const contenedorDeEventos= document.getElementById('mainDeIndex')
 
-
+let url="pages/details.html"
 let todosLosEventos;
 
 fetch('https://mindhub-xj03.onrender.com/api/amazing')
           .then( data => data.json()) // .json me transforma el fetch en objeto
           .then( respuesta => {
             todosLosEventos = respuesta.events
-            imprimirEventos(todosLosEventos,contenedorDeEventos)
+            imprimirEventos(todosLosEventos,contenedorDeEventos,url)
             let arrayCategorias= [...new Set(todosLosEventos.map(evento => evento.category))]
             imprimirCategorias(arrayCategorias,opcionesDeBusqueda)
 
