@@ -1,3 +1,5 @@
+
+//* Home/Up/Past
 export function buscadorDeTexto(array, texto) {
     if (!texto) {
       return array;
@@ -34,7 +36,7 @@ export function crearEvento(evento){
         <p class="card-text fs-5">${evento.description}</p>
         <div class=" d-flex flex-row justify-content-between">
         <p> Price: ${evento.price} </p>
-        <a href="./pages/details.html?id=${evento.name.replace(/ /g, "")}" class="btn vermas btn-dark">See more..</a>
+        <a href="${location.href == "http://127.0.0.1:5500/assets/index.html" ? "./pages/details.html":"./details.html"}?id=${evento._id}" class="btn vermas btn-dark">See more..</a>
         </div>
         </div>
         </div>`
@@ -47,6 +49,8 @@ export function imprimirEventos(parametro,lugar) {
               lugar.innerHTML = eve;
             }
 }
+
+//* Details
 export function imprimirDetail(evento){
   return `<div class="d-flex justify-content-center mt-5 mb-5 card" style="width: 80%; min-height: 66vh;">
   <div class="d-flex justify-content-center row g-0">
@@ -72,3 +76,115 @@ export function imprimirDetail(evento){
   </div>
   `
   }
+
+//* Stats
+export  function tabla(array,lugar){
+ 
+    const template =array.reduce((acc,act) => {
+      return acc+ `
+      <td>${act.categoria}</td>
+      <td>${act.revenues} </td>
+      <td>${act.porcentaje.toFixed(2)} %</td>
+    </tr>
+    `
+    },'')
+    lugar.innerHTML= template
+    }
+
+export function imprimirTabla(array) {
+    return `
+                  
+                  <table>
+                  <thead>
+                  <tr>
+                      <th class="fs-1 bg-light" colspan="3">Events Statistics</th>
+                  </tr>
+                  <tr>
+                      <th>Events with the highest percentage of attendance</th>
+                      <th>Events with the lowest percentage of attendance</th>
+                      <th>Events with larger capacity</th>
+                  </tr>
+                  <tr>
+                      <td id="evenmax"></td>
+                      <td id="evenmin"></td>
+                      <td id="evencap"></td>
+                  </tr>
+                  </thead>
+                  <tr>
+                      <th class="fs-1 bg-light" colspan="3">Upcomming events statistics by category</th>
+                  </tr>
+                  <tr>
+                      <td>Categories</td>
+                      <td>Revenues</td>
+                      <td>Percentage off attendance</td>
+                  </tr>
+                  <tbody id="up">
+                  <tr>
+                  
+                  <tr>
+                  </tbody>
+                  <tr>
+                      <th class="fs-1 bg-light" colspan="3">Past Events statistic by category</th>
+                  </tr>
+                  <tr>
+                      <td>Categories</td>
+                      <td>Revenues</td>
+                      <td>Percentage off attendance</td>
+                  </tr>
+                  <tbody id="past">
+                 
+                  </tbody>
+              </table>
+                  
+                  `;
+  }
+
+  
+export function eventMaxAssistance(array) {
+  let mayorAsistencia = { nombre: "", asistencia: 0 };
+
+  array.forEach((a) => {
+    const asistencia = (a.assistance * 100) / a.capacity;
+    if (asistencia > mayorAsistencia.asistencia) {
+      mayorAsistencia.nombre = a.name;
+      mayorAsistencia.asistencia = asistencia;
+    }
+  });
+
+  return `-${mayorAsistencia.nombre} : ${mayorAsistencia.asistencia.toFixed(
+    1
+  )} %`;
+}
+
+export function eventMinAssistance(array) {
+  let menorAsistencia = { nombre: "", asistencia: 100 };
+
+  array.forEach((a) => {
+    const asistencia = (a.assistance * 100) / a.capacity;
+    if (asistencia < menorAsistencia.asistencia) {
+      menorAsistencia.nombre = a.name;
+      menorAsistencia.asistencia = asistencia;
+    }
+  });
+
+  return `-${menorAsistencia.nombre} : ${menorAsistencia.asistencia.toFixed(
+    1
+)} %`;
+}
+
+export function eventMaxCapacity(array) {
+  let mayorCapacidad = { nombre: "", capacidad: 0 };
+
+  array.forEach((a) => {
+    const capacidad = a.capacity;
+    if (capacidad > mayorCapacidad.capacidad) {
+      mayorCapacidad.nombre = a.name;
+      mayorCapacidad.capacidad = capacidad;
+    }
+  });
+
+  return `${mayorCapacidad.nombre} : ${mayorCapacidad.capacidad.toFixed(0
+  )} (capacity) `;
+}
+
+
