@@ -38,16 +38,16 @@ nav a:hover{
 }
 
 .for{
-    font-size: small;
+    font-size: large;
     height: 2rem;
-    width: 100%;
+    width: 70%;
     display: flex;
     justify-content: center;
 }
 
 .formulariodecontacto {
     flex-grow: initial;
-    padding-top: 10rem;
+    padding-top: 3rem;
     font-size: large;
     height: 80vh;
     width: 40%;
@@ -66,8 +66,14 @@ label{
     margin-left: 0.4rem;
 }
 
-.sear{
-    width: 20%;
+
+.inputBuscador{
+    display: flex;
+    width:25rem;
+}
+
+.search{
+    width: 70%;
 }
 
 main{
@@ -118,6 +124,7 @@ section{
 }
 
 .card p {
+    font-size: medium;
     color: black !important;
 }
 
@@ -172,10 +179,50 @@ table,tr,th,td{
 
   {
 
+ .buscador{
+    display: flex;
+    flex-direction: column;
+    min-height: 28rem;
+    
+}
+
+.for{
+    font-size: 5rem;
+    min-height: 25rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.for label{
+    font-size: 1.5rem;
+}
+
+
+.form-control{
+    width: 80%;
+}
+
+.formulariodecontacto {
+    font-size: large;
+    height: 100%;
+    width: 90%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.botondeenviar{
+    width: 80%;
+}
+
 nav{
     display: flex;
     flex-direction: column;
 }
+
+
 
 nav a{
     margin-top:1rem;
