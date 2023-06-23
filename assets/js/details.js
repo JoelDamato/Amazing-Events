@@ -1,21 +1,29 @@
 import{imprimirDetail} from './module/funciones.js'
 
-const todosLosEventos = eventos.eventos
 
-let urlLocation= location.search
-console.log(urlLocation)
-let params= new URLSearchParams(urlLocation)
-console.log(params)
-let id = params.get('id')
+let todosLosEventos;
+
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+          .then( data => data.json()) // .json me transforma el fetch en objeto
+        .then( respuesta => {
+            todosLosEventos = respuesta.events
+            let urlLocation= location.search
+            let params= new URLSearchParams(urlLocation)
+            let id = params.get('id')
+            
+            
+            let eventosFiltrados= todosLosEventos.find(evento => evento._id == id)
+            const cardDetails=document.getElementById('contenedorDetail')
+            
+            cardDetails.innerHTML= imprimirDetail(eventosFiltrados)
+
+            }
+          ) //
+            .catch( err => console.log(err))
 
 
-let eventosFiltrados= todosLosEventos.find(evento => evento.name.replace(/ /g, "") == id)
 
-console.log(eventosFiltrados)
 
-const cardDetails=document.getElementById('contenedorDetail')
-
-cardDetails.innerHTML=imprimirDetail(eventosFiltrados)
 
 
 
