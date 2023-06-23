@@ -1,7 +1,9 @@
 
+
 import{imprimirEventos,imprimirCategorias,filtrarPorCategoria,buscadorDeTexto} from './module/funciones.js'
 
 const contenedorDeEventos= document.getElementById('mainDeIndex')
+
 
 let url="pages/details.html"
 let todosLosEventos;
@@ -26,6 +28,7 @@ const opcionesDeBusqueda=document.getElementById('opciones')
 
 //*escuchar eventos
 
+
 opcionesDeBusqueda.addEventListener('change', (e) =>{
     let arrayCat= [...(document.querySelectorAll('input[type="checkbox"]:checked') )].map (cat => cat.name )
     let filtro= filtrarPorCategoria(todosLosEventos,arrayCat)
@@ -39,6 +42,8 @@ buscador.addEventListener('input', (e) => {
     let filtro= filtrarPorCategoria(todosLosEventos,arrayCat)
     let resultados=buscadorDeTexto(filtro,buscador.value)
     imprimirEventos(resultados,contenedorDeEventos)
+
 }) 
+
 
 

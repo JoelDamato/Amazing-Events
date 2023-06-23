@@ -1,5 +1,4 @@
 
-//* Home/Up/Past
 export function buscadorDeTexto(array, texto) {
     if (!texto) {
       return array;
@@ -27,7 +26,7 @@ export function imprimirCategorias(parametro,lugar){
     }
     lugar.innerHTML=template
 }
-export function crearEvento(evento,url){
+
         return `
         <div class="card d-flex justify-content-center align-items-end m-2" style="width: 18rem;height:25rem">
         <img src="${evento.image}" class="card-img-top p-1" alt="Coming soon" style="width:18rem; height: 10rem;">
@@ -36,11 +35,14 @@ export function crearEvento(evento,url){
         <p class="card-text fs-5">${evento.description}</p>
         <div class=" d-flex flex-row justify-content-between">
         <p> Price: ${evento.price} </p>
+
         <a href="${url}?id=${evento._id}" class="btn vermas btn-dark">See more..</a>
+
         </div>
         </div>
         </div>`
 }
+
 export function imprimirEventos(parametro,lugar,url) {
             if (parametro.length === 0) {
             lugar.innerHTML = "NO HAY EVENTOS";
@@ -52,6 +54,7 @@ export function imprimirEventos(parametro,lugar,url) {
 }
 
 //* Details
+
 export function imprimirDetail(evento){
   return `<div class="d-flex justify-content-center mt-5 mb-5 card" style="width: 80%; min-height: 66vh;">
   <div class="d-flex justify-content-center row g-0">
@@ -77,6 +80,7 @@ export function imprimirDetail(evento){
   </div>
   `
   }
+
 
 //* Stats
 

@@ -1,3 +1,4 @@
+
 import{statistic,estadisticas,tabla,imprimirTabla, eventMaxAssistance,eventMinAssistance,eventMaxCapacity}from './module/funciones.js'
 
 
@@ -37,6 +38,4 @@ $evencap.innerHTML = eventMaxCapacity(todosLosEventos);
   })
 
   .catch((err) => console.log(err));
-
-
 
