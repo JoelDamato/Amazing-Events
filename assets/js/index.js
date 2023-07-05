@@ -13,6 +13,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
           .then( respuesta => {
             todosLosEventos = respuesta.events
             imprimirEventos(todosLosEventos,contenedorDeEventos,url)
+
             let arrayCategorias= [...new Set(todosLosEventos.map(evento => evento.category))]
             imprimirCategorias(arrayCategorias,opcionesDeBusqueda)
 
