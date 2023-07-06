@@ -8,7 +8,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
         .then( respuesta => {
             todosLosEventos = respuesta.events
             let urlLocation= location.search
-            let params= new URLSearchParams(urlLocation)
+            evento._id
             let id = params.get('id')
             
             
